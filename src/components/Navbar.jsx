@@ -12,6 +12,7 @@ export const Navbar = ({ user, setUser, setErrorMessage, setErrorType }) => {
   const handleLogOut = () => {
     localStorage.clear()
     // client.resetStore()
+
     googleLogout()
     setUser(null)
     setErrorType('add')
