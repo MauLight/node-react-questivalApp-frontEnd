@@ -6,8 +6,9 @@ import axios from 'axios'
 // import { useMutation } from '@apollo/client'
 import { postUser } from '../services/user'
 import googleIcon from '../assets/googleIcon.svg'
+import { logUser } from '../services/login'
 
-export const Signup = ({ setErrorMessage, setErrorType }) => {
+export const Signup = ({ setUser, setErrorMessage, setErrorType }) => {
 
   //! Google Only
   const googleLogin = useGoogleLogin({
@@ -21,6 +22,10 @@ export const Signup = ({ setErrorMessage, setErrorType }) => {
         .then((res) => {
           console.log('This is the googleUser info:', res.data)
           handleGoogleSubmit(res.data)
+            // eslint-disable-next-line no-unused-vars
+            .then(response => {
+              handleGoogleLogin(res.data)
+            })
         })
         .catch((error) => console.log(error))
     },
@@ -65,7 +70,7 @@ export const Signup = ({ setErrorMessage, setErrorType }) => {
       setTimeout(() => {
         setErrorMessage(null)
       }, 5000)
-      navigate('/login')
+      return postedUser
     }
     catch (error) {
       setErrorMessage('Email is already taken.')
@@ -125,6 +130,32 @@ export const Signup = ({ setErrorMessage, setErrorType }) => {
 
   }
 
+  const handleGoogleLogin = async (profile) => {
+
+    console.log('Profile email', profile.email)
+    const user = {
+      email: profile.email,
+      password: profile.id
+    }
+
+    try {
+      const loggedUser = await logUser(user)
+      localStorage.setItem('QuestivalUser', JSON.stringify(loggedUser))
+      setUser(loggedUser)
+      console.log('This is the logged user', loggedUser)
+      navigate('/dashboard')
+      return loggedUser
+    }
+    catch (error) {
+      console.log(error)
+      setErrorMessage('Incorrect password or email.')
+      setErrorType('red')
+      setTimeout(() => {
+        setErrorMessage(null)
+      }, 5000)
+    }
+  }
+
   // const handleSubmit = async (e) => {
   //   e.preventDefault()
   //   await signUp({ variables: { firstname, lastname, birthdate, email, password } })
@@ -163,7 +194,7 @@ export const Signup = ({ setErrorMessage, setErrorType }) => {
             <small className='text-white'>By clicking Sign Up, you agree to our Terms, Privacy Policy and Cookies Policy.</small>
           </div>
           <div className="flex gap-y-2 w-full">
-            <button type='submit' className= 'h-8 sm:h-12 p-2 text-[#1E1E1E] bg-[#FC4ECF] w-full rounded-md hover:bg-white transition-color duration-200' onClick={handleSubmit}>Sign up</button>
+            <button type='submit' className='h-8 sm:h-12 p-2 text-[#1E1E1E] bg-[#FC4ECF] w-full rounded-md hover:bg-white transition-color duration-200' onClick={handleSubmit}>Sign up</button>
           </div>
         </form>
         <div className='flex flex-col items-center gap-y-5 px-5 font-body text-sm min-w-[15vw]'>

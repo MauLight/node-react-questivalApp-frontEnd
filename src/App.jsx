@@ -45,7 +45,7 @@ function App() {
               <Route path='/editUser' element={<EditUserTest setErrorMessage={setErrorMessage} setErrorType={setErrorType} />} />
               <Route path='/passwordReset' element={<Recovery setErrorMessage={setErrorMessage} setErrorType={setErrorType} />} />
               <Route path='/passwordResetRequest' element={<AskRecovery setErrorMessage={setErrorMessage} setErrorType={setErrorType} />} />
-              <Route path="/signup" element={<Signup setErrorMessage={setErrorMessage} setErrorType={setErrorType} />} />
+              <Route path="/signup" element={<Signup setUser={setUser} setErrorMessage={setErrorMessage} setErrorType={setErrorType} />} />
               <Route path="/login" element={<Login setUser={setUser} setErrorMessage={setErrorMessage} setErrorType={setErrorType} />} />
               <Route path="/adminlogin" element={<AdminLogin setUser={setUser} setErrorMessage={setErrorMessage} setErrorType={setErrorType} />} />
             </Routes>
