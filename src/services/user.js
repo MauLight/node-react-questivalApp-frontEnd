@@ -1,6 +1,6 @@
 import axios from 'axios'
-// const baseUrl = 'https://questivalapp-node-backend-together.onrender.com/api/users'
-const baseUrl = 'http://localhost:3001/api/users'
+const baseUrl = 'https://questivalapp-node-backend-together.onrender.com/api/users'
+// const baseUrl = 'http://localhost:3001/api/users'
 
 export const getUser = async (id) => {
   const { data } = await axios.get(`${baseUrl}/${id}`)

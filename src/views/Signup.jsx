@@ -176,13 +176,13 @@ export const Signup = ({ setErrorMessage, setErrorType }) => {
             </button>
           </div>
           <div className="flex gap-y-2 mt-auto">
-            <small className='text-white'>{'Already a member? '} <Link className='hover:text-[#464648] transition-color duration-200' to={'/login'}>Login.</Link></small>
+            <small className='text-white'>{'Already a member? '} <Link className='hover:text-[#FC4ECF] transition-color duration-200' to={'/login'}>Login.</Link></small>
           </div>
           <div className="flex gap-x-2 text-[10px] text-white mt-[12vh] mb-20">
-            <Link className='underline text-[10px] hover:text-[#4D4D4D] transition-color duration-200' to={'/terms'}>Terms,</Link>
-            <Link className='underline text-[10px] hover:text-[#4D4D4D] transition-color duration-200' to={'/privacy'}>Privacy Policy,</Link>
+            <Link className='underline text-[10px] hover:text-[#FC4ECF] transition-color duration-200' to={'/terms'}>Terms,</Link>
+            <Link className='underline text-[10px] hover:text-[#FC4ECF] transition-color duration-200' to={'/privacy'}>Privacy Policy,</Link>
             {'and '}
-            <Link className='underline text-[10px] hover:text-[#4D4D4D] transition-color duration-200' to={'/terms'}>Cookies Policy.</Link>
+            <Link className='underline text-[10px] hover:text-[#FC4ECF] transition-color duration-200' to={'/terms'}>Cookies Policy.</Link>
           </div>
         </div>
       </div>

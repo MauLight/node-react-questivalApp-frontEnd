@@ -66,17 +66,21 @@ export const AdminLogin = ({ setUser, setErrorMessage, setErrorType }) => {
           </div>
           <div className="flex flex-col gap-x-2 w-full">
             <input type='password' className='glass h-12 p-2 text-white bg-transparent w-full  rounded-md' value={password} onChange={({ target }) => setPassword(target.value)} placeholder='Password' />
-            <Link className='pt-1' to={'/passwordResetRequest'}><small className='text-white pl-2 pt-2 hover:text-[#4D4D4D] transition-color duration-200'>Forgot your password?</small></Link>
+            <Link className='pt-1' to={'/passwordResetRequest'}><small className='text-white pl-2 pt-2 hover:text-[#FC4ECF] transition-color duration-200'>Forgot your password?</small></Link>
           </div>
           <div className="flex gap-y-2 w-full">
             <button type='submit' className='h-12 p-2 text-[#1E1E1E] bg-[#FC4ECF] w-full rounded-md hover:bg-white transition-color duration-200' onClick={handleSubmit}>Login</button>
           </div>
+          <div className="flex gap-y-2 mt-auto">
+            <small className='text-white'><Link className='hover:text-[#FC4ECF] transition-color duration-200' to={'/'}>Return to site.</Link></small>
+          </div>
         </form>
-        <div className="flex justify-center gap-x-2 text-[10px] text-white mt-[41vh] mb-20">
-          <Link className='underline text-[10px] hover:text-[#4D4D4D] transition-color duration-200' to={'/terms'}>Terms,</Link>
-          <Link className='underline text-[10px] hover:text-[#4D4D4D] transition-color duration-200' to={'/privacy'}>Privacy Policy,</Link>
+
+        <div className="flex justify-center gap-x-2 text-[10px] text-white mt-[36vh] mb-20">
+          <Link className='underline text-[10px] hover:text-[#FC4ECF] transition-color duration-200' to={'/terms'}>Terms,</Link>
+          <Link className='underline text-[10px] hover:text-[#FC4ECF] transition-color duration-200' to={'/privacy'}>Privacy Policy,</Link>
           {'and '}
-          <Link className='underline text-[10px] hover:text-[#4D4D4D] transition-color duration-200' to={'/terms'}>Cookies Policy.</Link>
+          <Link className='underline text-[10px] hover:text-[#FC4ECF] transition-color duration-200' to={'/terms'}>Cookies Policy.</Link>
         </div>
       </div>
     </div>
