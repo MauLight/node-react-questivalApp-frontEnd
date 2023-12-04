@@ -76,7 +76,7 @@ export const AdminLogin = ({ setUser, setErrorMessage, setErrorType }) => {
           </div>
         </form>
 
-        <div className="flex justify-center gap-x-2 text-[10px] text-white mt-[36vh] mb-20">
+        <div className="flex justify-center gap-x-2 text-[10px] text-white mt-[26vh] min-[1800px]:mt-[36vh] mb-10 min-[1800px]:mb-20">
           <Link className='underline text-[10px] hover:text-[#FC4ECF] transition-color duration-200' to={'/terms'}>Terms,</Link>
           <Link className='underline text-[10px] hover:text-[#FC4ECF] transition-color duration-200' to={'/privacy'}>Privacy Policy,</Link>
           {'and '}

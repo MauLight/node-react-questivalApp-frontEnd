@@ -180,7 +180,7 @@ export const Login = ({ setUser, setErrorMessage, setErrorType }) => {
           <div className="flex gap-y-2">
             <small className='text-white'>New to website? <Link className='hover:text-[#FC4ECF] transition-color duration-200' to={'/signup'}>Sign up.</Link></small>
           </div>
-          <div className="flex gap-x-2 text-[10px] text-white mt-[23vh] mb-20">
+          <div className="flex gap-x-2 text-[10px] text-white mt-[13vh] min-[1800px]:mt-[23vh] mb-10 min-[1800px]:mb-20">
             <Link className='underline text-[10px] hover:text-[#FC4ECF] transition-color duration-200' to={'/terms'}>Terms,</Link>
             <Link className='underline text-[10px] hover:text-[#FC4ECF] transition-color duration-200' to={'/privacy'}>Privacy Policy,</Link>
             {'and '}

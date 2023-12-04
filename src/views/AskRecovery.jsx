@@ -62,7 +62,7 @@ export const AskRecovery = ({ setErrorMessage, setErrorType }) => {
             <small className='text-white'>Cancel? <Link className='hover:text-[#464648] transition-color duration-200' to={'/login'}>Log in.</Link></small>
           </div>
         </form>
-        <div className="flex justify-center gap-x-2 text-[10px] text-white mt-[47vh] mb-20">
+        <div className="flex justify-center gap-x-2 text-[10px] text-white mt-[37vh] min-[1800px]:mt-[47vh] mb-10 min-[1800px]:mb-20">
           <Link className='underline text-[10px] hover:text-[#4D4D4D] transition-color duration-200' to={'/terms'}>Terms,</Link>
           <Link className='underline text-[10px] hover:text-[#4D4D4D] transition-color duration-200' to={'/privacy'}>Privacy Policy,</Link>
           {'and '}
