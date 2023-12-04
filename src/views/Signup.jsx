@@ -138,11 +138,15 @@ export const Signup = ({ setErrorMessage, setErrorType }) => {
   // }
 
   return (
-    <div className='h-full max-sm:px-2 sm:w-full flex justify-center items-center'>
+    <div className='h-screen max-sm:px-2 sm:w-full flex justify-center items-end'>
       <div>
-        <form onSubmit={handleSubmit} className='flex flex-col font-body text-sm items-center gap-y-5 py-10 px-5' >
+        <div className='flex flex-col items-start gap-y-0 pb-5 px-5 font-body min-w-[15vw]'>
+          <h1 className='text-2xl text-white font-bold font-body p-0 m-0'>{'Join Questival !'}</h1>
+          <p className='text-sm text-white p-0 m-0'>Just some details to let you in.</p>
+        </div>
+        <form onSubmit={handleSubmit} className='flex flex-col items-center gap-y-5 pb-7 px-5 font-body text-sm min-w-[15vw]' >
           <div className="flex gap-x-2 w-full">
-            <input type='text' className='glass h-12 p-2 font-body text-sm text-white bg-transparent w-full  rounded-md' value={firstname} onChange={({ target }) => setFirstName(target.value)} placeholder='Firstname' />
+            <input type='text' className='glass h-12 p-2 font-body text-sm text-white bg-transparent w-full rounded-md' value={firstname} onChange={({ target }) => setFirstName(target.value)} placeholder='Firstname' />
             <input type='text' className='glass h-12 p-2 text-white bg-transparent w-full font-body text-sm rounded-md' value={lastname} onChange={({ target }) => setLastName(target.value)} placeholder='Lastname' />
           </div>
           <div className="flex gap-y-2 w-full">
@@ -159,20 +163,26 @@ export const Signup = ({ setErrorMessage, setErrorType }) => {
             <small className='text-white'>By clicking Sign Up, you agree to our Terms, Privacy Policy and Cookies Policy.</small>
           </div>
           <div className="flex gap-y-2 w-full">
-            <button type='submit' className='h-12 p-2 text-[#1E1E1E] bg-[#FC4ECF] w-full rounded-md' onClick={handleSubmit}>Sign up</button>
+            <button type='submit' className='h-12 p-2 text-[#1E1E1E] bg-[#FC4ECF] w-full rounded-md hover:bg-white transition-color duration-200' onClick={handleSubmit}>Sign up</button>
           </div>
         </form>
         <div className='flex flex-col items-center gap-y-5 px-5 font-body text-sm min-w-[15vw]'>
           <div className="flex justify-center gap-y-2 w-full">
-            <button className='glass h-12 p-2 text-white bg-transparent w-full rounded-md' onClick={googleLogin} >
+            <button className='glass h-12 p-2 text-white bg-transparent hover:bg-[#4285F4] transition-color duration-200 w-full rounded-md' onClick={googleLogin} >
               <div className="flex justify-center items-center gap-x-3">
                 <img src={googleIcon} className='w-[30px] h-auto' />
                 <h1 className='p-0 m-0'>Google</h1>
               </div>
             </button>
           </div>
-          <div className="flex gap-y-2">
+          <div className="flex gap-y-2 mt-auto">
             <small className='text-white'>{'Already a member? '} <Link className='hover:text-[#464648] transition-color duration-200' to={'/login'}>Login.</Link></small>
+          </div>
+          <div className="flex gap-x-2 text-[10px] text-white mt-[12vh] mb-20">
+            <Link className='underline text-[10px] hover:text-[#4D4D4D] transition-color duration-200' to={'/terms'}>Terms,</Link>
+            <Link className='underline text-[10px] hover:text-[#4D4D4D] transition-color duration-200' to={'/privacy'}>Privacy Policy,</Link>
+            {'and '}
+            <Link className='underline text-[10px] hover:text-[#4D4D4D] transition-color duration-200' to={'/terms'}>Cookies Policy.</Link>
           </div>
         </div>
       </div>

@@ -13,6 +13,7 @@ import Notification from './components/Notification'
 import { Recovery } from './views/Recovery'
 import { AskRecovery } from './views/AskRecovery'
 import { EditUserTest } from './views/EditUserTest'
+import { AdminLogin } from './views/AdminLogIn'
 
 function App() {
 
@@ -46,6 +47,7 @@ function App() {
               <Route path='/passwordResetRequest' element={<AskRecovery setErrorMessage={setErrorMessage} setErrorType={setErrorType} />} />
               <Route path="/signup" element={<Signup setErrorMessage={setErrorMessage} setErrorType={setErrorType} />} />
               <Route path="/login" element={<Login setUser={setUser} setErrorMessage={setErrorMessage} setErrorType={setErrorType} />} />
+              <Route path="/adminlogin" element={<AdminLogin setUser={setUser} setErrorMessage={setErrorMessage} setErrorType={setErrorType} />} />
             </Routes>
           </div>
         </div>
