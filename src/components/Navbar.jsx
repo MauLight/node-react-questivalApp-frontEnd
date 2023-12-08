@@ -27,7 +27,7 @@ export const Navbar = ({ user, setUser, setErrorMessage, setErrorType }) => {
   }, [])
 
   return (
-    <div className='w-full h-[5%] fixed z-10 flex justify-between px-2 bg- sm:ptransparentx-10 mt-2'>
+    <div className='w-full h-[5%] fixed z-10 flex justify-between px-6 bg- sm:ptransparentx-10 mt-2'>
       <video
         src={logo}
         type='video/mp4'
