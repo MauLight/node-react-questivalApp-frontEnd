@@ -10,7 +10,7 @@ import { Signup } from './views/Signup'
 // import hero from './assets/background_web.mp4'
 import { Dashboard } from './views/Dashboard'
 import { Login } from './views/Login'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import Notification from './components/Notification'
 import { Recovery } from './views/Recovery'
 import { AskRecovery } from './views/AskRecovery'
@@ -23,6 +23,16 @@ function App() {
   const [user, setUser] = useState(null)
   const [errorType, setErrorType] = useState('')
   const [errorMessage, setErrorMessage] = useState(null)
+
+  console.log('This is the user:', user)
+
+  useEffect(() => {
+    if(!user) {
+      const currentUser = localStorage.getItem('QuestivalUser')
+      setUser(JSON.parse(currentUser))
+      console.log('This is the retrieved user:', JSON.parse(currentUser))
+    }
+  }, [])
 
   return (
     <div className="bg-[#1E1E1E] flex justify-center items-center overflow-hidden">
@@ -47,7 +57,7 @@ function App() {
                 <Routes>
                   <Route path='/' element={<Dashboard />} />
                   <Route path='/dashboard' element={<Dashboard setErrorMessage={setErrorMessage} setErrorType={setErrorType} />} />
-                  <Route path='/profile' element={<UserProfile setErrorMessage={setErrorMessage} setErrorType={setErrorType} />} />
+                  <Route path='/profile' element={<UserProfile user={user} setUser={setUser} setErrorMessage={setErrorMessage} setErrorType={setErrorType} />} />
                   <Route path='/editUser' element={<EditUserTest setErrorMessage={setErrorMessage} setErrorType={setErrorType} />} />
                   <Route path='/passwordReset' element={<Recovery setErrorMessage={setErrorMessage} setErrorType={setErrorType} />} />
                   <Route path='/passwordResetRequest' element={<AskRecovery setErrorMessage={setErrorMessage} setErrorType={setErrorType} />} />

@@ -63,7 +63,7 @@ export const Login = ({ setUser, setErrorMessage, setErrorType }) => {
       setEmail('')
       setPassword('')
       console.log('This is the logged user', currentUser)
-      navigate('/dashboard')
+      navigate('/profile')
     }
     catch (error) {
       console.log(error)
@@ -101,7 +101,7 @@ export const Login = ({ setUser, setErrorMessage, setErrorType }) => {
       setEmail('')
       setPassword('')
       console.log('This is the logged user', currentUser)
-      navigate('/dashboard')
+      navigate('/profile')
     }
     catch (error) {
       console.log(error)

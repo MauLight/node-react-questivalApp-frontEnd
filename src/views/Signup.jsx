@@ -22,10 +22,7 @@ export const Signup = ({ setUser, setErrorMessage, setErrorType }) => {
         .then((res) => {
           console.log('This is the googleUser info:', res.data)
           handleGoogleSubmit(res.data)
-            // eslint-disable-next-line no-unused-vars
-            .then(response => {
-              handleGoogleLogin(res.data)
-            })
+          // eslint-disable-next-line no-unused-vars
         })
         .catch((error) => console.log(error))
     },
@@ -59,7 +56,8 @@ export const Signup = ({ setUser, setErrorMessage, setErrorType }) => {
       lastname: profile.family_name,
       birthdate: Date.now(),
       email: profile.email,
-      password: profile.id
+      password: profile.id,
+      avatar: profile.picture
     }
 
     try {
@@ -70,6 +68,7 @@ export const Signup = ({ setUser, setErrorMessage, setErrorType }) => {
       setTimeout(() => {
         setErrorMessage(null)
       }, 5000)
+      handleGoogleLogin({ email: profile.email, id: profile.id })
       return postedUser
     }
     catch (error) {
@@ -143,7 +142,7 @@ export const Signup = ({ setUser, setErrorMessage, setErrorType }) => {
       localStorage.setItem('QuestivalUser', JSON.stringify(loggedUser))
       setUser(loggedUser)
       console.log('This is the logged user', loggedUser)
-      navigate('/dashboard')
+      navigate('/profile')
       return loggedUser
     }
     catch (error) {

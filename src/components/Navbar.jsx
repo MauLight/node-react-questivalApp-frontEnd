@@ -19,7 +19,7 @@ export const Navbar = ({ user, setUser, setErrorMessage, setErrorType }) => {
     setErrorType('add')
     setErrorMessage('Logged out succesfully.')
     setTimeout(() => setErrorMessage(null), 5000)
-    navigate('/signup')
+    navigate('/login')
   }
 
   useEffect(() => {
