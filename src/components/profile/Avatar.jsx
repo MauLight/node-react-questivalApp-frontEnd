@@ -61,8 +61,8 @@ export const Avatar = ({ user, setUser, setErrorType, setErrorMessage }) => {
             </label>
 
           </div>
-          <div className="absolute h-full w-[79%] bg-gradient-to-t from-black to-transparent opacity-50"></div>
-          <img className='w-[20vw] h-[33.6vh] object-cover' src={user?.avatar === '' ? cloudinaryAvatarImage : user.avatar} />
+          <div className="absolute h-full  bg-gradient-to-t from-black to-transparent opacity-50"></div>
+          <img className='w-[20vw] h-[33.6vh] object-cover' src={user?.avatar === '' ? cloudinaryAvatarImage : user?.avatar} />
         </div>
         <motion.div
           variants={fadeInSmall('up', 0.6)}

@@ -5,7 +5,7 @@ import parallax_02 from '../../assets/wall2.jpg'
 export const ParallaxHeader = ({ user }) => {
   return (
     <div className="header relative justify-center items-center flex h-[800px]">
-      <img src={parallax_02} className='background absolute w-screen h-screen object-cover opacity-50 transition-all duration-200' />
+      <img src={parallax_02} className='background absolute w-screen h-screen object-cover opacity-50 transition-all duration-200 top-0 ' />
       <div className="flex justify-center items-center w-full">
         <div className="flex flex-col w-full justify-center items-center">
           <motion.h1
