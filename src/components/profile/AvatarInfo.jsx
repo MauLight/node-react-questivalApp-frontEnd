@@ -1,5 +1,29 @@
 import { useState } from 'react'
 import { updateUser } from '../../services/user'
+import { user as currentUser } from '../../utils/user'
+
+const Badges = ({ isOpen, setIsOpen, badges }) => {
+  return (
+    <>
+      <p onClick={() => setIsOpen(!isOpen)} className='text-end underline cursor-pointer hover:text-[#FC4ECF] active:text-black transition-color duration-200'>{!isOpen ? 'See all' : 'Cancel'}</p>
+      <div className="flex flex-wrap justify-between mt-2">
+        {
+          !isOpen ? (
+            badges.map(elem => (
+              <img key={elem} src={elem} className='w-[84px] h-[84px] object-cover' />
+            ))
+          )
+            :
+            (
+              currentUser.badges.map(elem => (
+                <img key={elem} src={elem} className='w-[84px] h-[84px] object-cover' />
+              ))
+            )
+        }
+      </div>
+    </>
+  )
+}
 
 export const AvatarInfo = ({ user, setUser, setErrorType, setErrorMessage }) => {
 
@@ -12,8 +36,10 @@ export const AvatarInfo = ({ user, setUser, setErrorType, setErrorMessage }) => 
   //* Optional information
   const [location, setLocation] = useState('')
   const [website, setWebsite] = useState('')
+  const [badges, setBadges] = useState(currentUser.badges.slice(0, 3))
 
   const [edit, setEdit] = useState(false)
+  const [isOpen, setIsOpen] = useState(false)
 
   const handleSubmit = async () => {
 
@@ -50,7 +76,7 @@ export const AvatarInfo = ({ user, setUser, setErrorType, setErrorMessage }) => 
         !edit ? (
           <div className="flex flex-col bg-white px-10 pt-5 gap-y-5">
             <ul className='flex flex-col gap-y-2'>
-              <li className='border-b font-body text-sm px-2'>{user?.birthdate.substring(0,10) || birthdate}</li>
+              <li className='border-b font-body text-sm px-2'>{user?.birthdate.substring(0, 10) || birthdate}</li>
               <li className='border-b font-body text-sm px-2'>{user?.location || location}</li>
               <li className='border-b font-body text-sm px-2'>{user?.email}</li>
               <li className='border-b font-body text-sm px-2'>
@@ -60,12 +86,7 @@ export const AvatarInfo = ({ user, setUser, setErrorType, setErrorMessage }) => 
             <div className="flex flex-col">
               <h1 className='font-body text-lg'>Milestones</h1>
               <div className='w-full'>
-                <p className='text-end underline'>See all</p>
-                <div className="flex justify-between">
-                  <p>badge.id</p>
-                  <p>badge.id</p>
-                  <p>badge.id</p>
-                </div>
+                <Badges isOpen={isOpen} setIsOpen={setIsOpen} badges={badges} />
                 <div className="flex justify-between mt-5">
                   <button onClick={() => setEdit(true)} className='h-12 p-2 text-white bg-[#FC4ECF] border border-[#FC4ECF] w-full rounded-md hover:bg-white hover:text-[#FC4ECF] active:bg-[#FC4ECF] active:text-white transition-color duration-200' >
                     Edit profile

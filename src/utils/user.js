@@ -19,6 +19,22 @@ export const user = {
     linkedin: 'https://www.linkedin.com/in/mau-ulisse-luz-1295a9248/',
     discord: '/'
   },
+  badges: [
+    'https://png.pngtree.com/png-clipart/20190921/original/pngtree-beautiful-badge-decoration-illustration-png-image_4757092.jpg',
+    'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRyTmjoX9SXXG1Qa-et-WoTlmA4Orj6zx45gn60c57pKImR4EYQfyTBJp9Qj7rPzkdMU30&usqp=CAU',
+    'https://png.pngtree.com/png-clipart/20190905/original/pngtree-blue-badge-decoration-illustration-png-image_4521134.jpg',
+    'https://png.pngtree.com/png-clipart/20190905/original/pngtree-polygonal-badge-decoration-illustration-png-image_4524121.jpg',
+    'https://png.pngtree.com/png-clipart/20190921/original/pngtree-honor-badge-decoration-illustration-png-image_4756120.jpg',
+    'https://png.pngtree.com/png-clipart/20190921/original/pngtree-cross-badge-decoration-illustration-png-image_4755173.jpg',
+    'https://png.pngtree.com/png-clipart/20190905/original/pngtree-yellow-badge-decoration-illustration-png-image_4523160.jpg',
+    'https://png.pngtree.com/element_our/20190530/ourmid/pngtree-red-five-pointed-star-badge-image_1244666.jpg',
+    'https://png.pngtree.com/element_our/20190530/ourmid/pngtree-yellow-atmosphere-badge-medal-image_1244668.jpg'
+  ],
+  certificates: [
+    'https://marketplace.canva.com/EAFNlUJs5g4/2/0/1600w/canva-white-simple-certificate-of-appreciation-Fcz7KkZ5YaU.jpg',
+    'https://marketplace.canva.com/EAFIEvneNCM/1/0/800w/canva-golden-elegant-certificate-of-appreciation-lucyjeOxOgs.jpg',
+    'https://marketplace.canva.com/EAE9ooRAJnQ/1/0/1600w/canva-blue-simple-achievement-certificate-pX8z4TgiGd0.jpg',
+  ],
   read: [
     {
       id: 'a1',

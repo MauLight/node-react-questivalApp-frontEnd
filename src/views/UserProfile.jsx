@@ -70,7 +70,7 @@ export const UserProfile = ({ user, setUser, setErrorType, setErrorMessage }) =>
                 initial="hidden"
                 whileInView={'show'}
                 viewport={{ once: true, amount: 0.7 }}
-                className='mr-10 mt-[11.2vh] h-[66vh] overflow-y-scroll rounded-md'>
+                className='mr-10 mt-[11.2vh] h-[73.2vh] overflow-y-scroll rounded-md'>
                 <ProfileInfo />
               </motion.div>
             )

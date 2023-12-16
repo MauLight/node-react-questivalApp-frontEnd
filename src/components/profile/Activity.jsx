@@ -5,9 +5,18 @@ import { ScreenplayCard } from './ScreenplayCard'
 const ScreenplayMenu = ({ currentPage, setCurrentPage }) => {
   return (
     <div className="flex justify-center items-end w-full gap-x-20">
-      <h1 onClick={() => setCurrentPage(1)} className={currentPage === 1 ? 'text-xl text-[#FC4ECF] font-body underline cursor-pointer hover:text-black transition-color duration-200 italic bold' : 'text-lg font-body cursor-pointer hover:text-[#FC4ECF] transition-color duration-200'}>Read Screenplays</h1>
-      <h1 onClick={() => setCurrentPage(2)} className={currentPage === 2 ? 'text-xl text-[#FC4ECF] font-body underline cursor-pointer hover:text-black transition-color duration-200 italic bold' : 'text-lg font-body cursor-pointer hover:text-[#FC4ECF] transition-color duration-200'}>Favorite Screenplays</h1>
-      <h1 onClick={() => setCurrentPage(3)} className={currentPage === 3 ? 'text-xl text-[#FC4ECF] font-body underline cursor-pointer hover:text-black transition-color duration-200 italic bold' : 'text-lg font-body cursor-pointer hover:text-[#FC4ECF] transition-color duration-200'}>Saved Screenplays</h1>
+      <h1 onClick={() => setCurrentPage(1)} className={currentPage === 1 ? 'flex gap-x-2 items-center text-xl text-[#FC4ECF] font-body cursor-pointer hover:text-black transition-color duration-200 bold' : 'flex gap-x-2 items-center text-lg font-body cursor-pointer hover:text-[#FC4ECF] transition-color duration-200'}>
+        <i className="fa-regular fa-square-check"></i>
+      Read Screenplays
+      </h1>
+      <h1 onClick={() => setCurrentPage(2)} className={currentPage === 2 ? 'flex gap-x-2 items-center text-xl text-[#FC4ECF] font-body cursor-pointer hover:text-black transition-color duration-200 bold' : 'flex gap-x-2 items-center text-lg font-body cursor-pointer hover:text-[#FC4ECF] transition-color duration-200'}>
+        <i className="fa-regular fa-star"></i>
+      Favorite Screenplays
+      </h1>
+      <h1 onClick={() => setCurrentPage(3)} className={currentPage === 3 ? 'flex gap-x-2 items-center text-xl text-[#FC4ECF] font-body cursor-pointer hover:text-black transition-color duration-200 bold' : 'flex gap-x-2 items-center text-lg font-body cursor-pointer hover:text-[#FC4ECF] transition-color duration-200'}>
+        <i className="fa-regular fa-bookmark"></i>
+      Saved Screenplays
+      </h1>
     </div>
   )
 }
