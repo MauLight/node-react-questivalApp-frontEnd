@@ -34,7 +34,7 @@ export const UserProfile = ({ user, setUser, setErrorType, setErrorMessage }) =>
 
   return (
     <div className='wrapper w-full h-[100vh] overflow-y-auto overflow-x-hidden'>
-      <ParallaxHeader user={utilUser} />
+      <ParallaxHeader user={user} />
       <div className="flex px-10 pt-12 bg-white justify-between">
         <h1 className='text-[40px] font-body font-bold uppercase pb-10'>_Portfolio</h1>
         <Menu currentPage={currentPage} setCurrentPage={setCurrentPage} />
