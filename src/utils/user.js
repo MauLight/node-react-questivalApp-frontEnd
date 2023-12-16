@@ -19,6 +19,84 @@ export const user = {
     linkedin: 'https://www.linkedin.com/in/mau-ulisse-luz-1295a9248/',
     discord: '/'
   },
+  read: [
+    {
+      id: 'a1',
+      title: 'Godzilla Minus One',
+      logline: 'Post war Japan is at its lowest point when a new crisis emerges in the form of a giant monster, baptized in the horrific power of the atomic bomb.',
+      poster: 'https://cdn.shopify.com/s/files/1/0057/3728/3618/files/Godzilla_Minus_One_Final_500x749.jpg?v=1702127060',
+      pos: 1,
+      genres: ['action', 'fantasy', 'kaiju']
+    },
+    {
+      id: 'b2',
+      title: 'Dances with Wolves',
+      logline: 'Lieutenant John Dunbar, assigned to a remote western Civil War outpost, finds himself engaging with a neighbouring Sioux settlement, causing him to question his own purpose.',
+      poster: 'https://cdn.shopify.com/s/files/1/0057/3728/3618/products/3b5336529921632efcfb355f96aa706d_3bedd901-4687-4d61-8512-e54fecffe7d1_500x749.jpg?v=1573653991',
+      pos: 2,
+      genres: ['adventure', 'drama', 'western']
+    },
+    {
+      id: 'c3',
+      title: 'Green Book',
+      logline: 'A working-class Italian-American bouncer becomes the driver for an African-American classical pianist on a tour of venues through the 1960s American South.',
+      poster: 'https://cdn.shopify.com/s/files/1/0057/3728/3618/products/d6bba0bf90c74eb85c52c38f4ac235c0_90573dc4-d1b6-4511-84f8-44d446c1089c_500x749.jpg?v=1573592563',
+      pos: 3,
+      genres: ['biography', 'comedy', 'drama']
+    },
+  ],
+  favorites: [
+    {
+      id: 'a1',
+      title: 'Avengers: Endgame',
+      logline: 'After the devastating events of Avengers: Infinity War (2018), the universe is in ruins. With the help of remaining allies, the Avengers assemble once more in order to reverse Thanos\' actions and restore balance to the universe.',
+      poster: 'https://cdn.shopify.com/s/files/1/0057/3728/3618/products/a0fc100359cecc91a64c5db49016d497_75b924a2-ce9f-4535-8b76-2ada42564bbd_500x749.jpg?v=1573593911',
+      pos: 1,
+      genres: ['action', 'adventure', 'drama']
+    },
+    {
+      id: 'b2',
+      title: 'Portrait of a Lady on Fire',
+      logline: 'On an isolated island in Brittany at the end of the eighteenth century, a female painter is obliged to paint a wedding portrait of a young woman.',
+      poster: 'https://cdn.shopify.com/s/files/1/0057/3728/3618/products/portraitonfire_500x749.jpg?v=1583165266',
+      pos: 2,
+      genres: ['drama', 'romance', 'period']
+    },
+    {
+      id: 'c3',
+      title: 'The Dark Knight Rises',
+      logline: 'Eight years after the Joker\'s reign of chaos, Batman is coerced out of exile with the assistance of the mysterious Selina Kyle in order to defend Gotham City from the vicious guerrilla terrorist Bane.',
+      poster: 'https://cdn.shopify.com/s/files/1/0057/3728/3618/products/9c21b56cf904fe165744c8c09b381c4f_884eee8c-fd65-4d8c-b2e6-ed33ff437f7d_500x749.jpg?v=1573590196',
+      pos: 3,
+      genres: ['action', 'drama', 'thriller']
+    },
+  ],
+  saved: [
+    {
+      id: 'a1',
+      title: 'The Tree of Life',
+      logline: 'The story of a family in Waco, Texas in 1956. The eldest son witnesses the loss of innocence and struggles with his parents\' conflicting teachings.',
+      poster: 'https://cdn.shopify.com/s/files/1/0057/3728/3618/products/1f0662945d281701dcea7096be558efa_8d0f28a7-a54b-4299-9a44-26e8398679d1_500x749.jpg?v=1573588665',
+      pos: 1,
+      genres: ['drama', 'fantasy', 'divine']
+    },
+    {
+      id: 'b2',
+      title: 'Three Billboards Outside Ebbing, Missouri',
+      logline: 'A mother personally challenges the local authorities to solve her daughter\'s murder when they fail to catch the culprit.',
+      poster: 'https://cdn.shopify.com/s/files/1/0057/3728/3618/products/a0b21732a3fcf726a5858f7eb0d22a05_7eff45cb-142f-4570-8560-416f520a2dd1_500x749.jpg?v=1573652446',
+      pos: 2,
+      genres: ['comedy', 'crime', 'drama']
+    },
+    {
+      id: 'c3',
+      title: 'Mother!',
+      logline: 'A couple\'s relationship is tested when uninvited guests arrive at their home, disrupting their tranquil existence.',
+      poster: 'https://cdn.shopify.com/s/files/1/0057/3728/3618/files/scan006_8e6a803b-e6e6-4fd9-bb8b-f3884bfd0d9a_500x749.jpg?v=1701443885',
+      pos: 2,
+      genres: ['drama', 'horror', 'mystery']
+    },
+  ],
   projects: [
     {
       id: 'a1',
