@@ -30,7 +30,6 @@ export const AvatarInfo = ({ user, setUser, setErrorType, setErrorMessage }) => 
   //! Mandatory information
   const [firstname, setFirstName] = useState('')
   const [lastname, setLastname] = useState('')
-  const [birthdate, setBirthdate] = useState('')
   const [email, setEmail] = useState('')
 
   //* Optional information
@@ -46,7 +45,6 @@ export const AvatarInfo = ({ user, setUser, setErrorType, setErrorMessage }) => 
     const updateObj = {
       firstname: firstname === '' ? user.firstname : firstname,
       lastname: lastname === '' ? user.lastname : lastname,
-      birthdate: birthdate === '' ? user.birthdate : birthdate,
       email: email === '' ? user.email : email,
       location: location === '' ? user.location : location,
       website: website === '' ? user.website : website
