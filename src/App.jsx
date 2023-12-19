@@ -17,6 +17,7 @@ import { AskRecovery } from './views/AskRecovery'
 import { EditUserTest } from './views/EditUserTest'
 import { AdminLogin } from './views/AdminLogIn'
 import { UserProfile } from './views/UserProfile'
+import { Terms } from './components/signup/Terms'
 
 function App() {
 
@@ -35,7 +36,7 @@ function App() {
   }, [])
 
   return (
-    <div className="bg-[#1E1E1E] flex justify-center items-center overflow-hidden">
+    <div className="bg-[#1E1E1E] flex justify-center items-center overflow-hidden relative">
       <>
         <div className="h-screen w-screen overflow-hidden">
           <Navbar user={user} setUser={setUser} setErrorMessage={setErrorMessage} setErrorType={setErrorType} />
@@ -50,7 +51,7 @@ function App() {
             className="object-cover w-full h-full box-border overflow-hidden scrollbar-none opacity-40"
           />
         </div>
-        <div className="absolute flex flex-col justify-start items-center overflow-x-hidden h-screen">
+        <div className="absolute flex flex-col justify-start items-center overflow-x-hidden h-screen z-10">
           <ParallaxProvider>
             <ScrollToTop>
               <div>
@@ -69,6 +70,11 @@ function App() {
             </ScrollToTop>
           </ParallaxProvider>
         </div>
+        {
+          !user && (
+            <Terms />
+          )
+        }
       </>
     </div>
   )

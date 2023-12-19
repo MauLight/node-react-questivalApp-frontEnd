@@ -13,7 +13,7 @@ export const ParallaxHeader = ({ user }) => {
             initial="hidden"
             whileInView={'show'}
             viewport={{ once: true, amount: 0.7 }}
-            className='text-[180px] uppercase text-white mt-[188px]'>{user.firstname + ' ' + user.lastname}
+            className='text-[180px] uppercase text-white mt-[188px]'>{user?.firstname + ' ' + user?.lastname}
           </motion.h1>
           <motion.div
             variants={fadeInSmall('right', 0.2)}
@@ -23,13 +23,13 @@ export const ParallaxHeader = ({ user }) => {
             className="flex w-full h-full justify-start items-end mt-[150px]">
             <ul className='mx-10 text-xl flex flex-col justify-center items-center'>
               <li className='font-body uppercase text-2xl transition-color duration-200 absolute -rotate-90 left-[0.5%] top-[73%] text-[#FC4ECF] '>Visit me</li>
-              <li className='text-white font-body hover:text-[#FC4ECF] active:text-white transition-color duration-200'><a href={user.social.instagram}>
+              <li className='text-white font-body hover:text-[#FC4ECF] active:text-white transition-color duration-200'><a href={user?.social.instagram}>
                 <i className="fa-brands fa-instagram"></i>
               </a></li>
-              <li className='text-white font-body hover:text-[#FC4ECF] active:text-white transition-color duration-200'><a href={user.social.linkedin}>
+              <li className='text-white font-body hover:text-[#FC4ECF] active:text-white transition-color duration-200'><a href={user?.social.linkedin}>
                 <i className="fa-brands fa-linkedin"></i>
               </a></li>
-              <li className='text-white font-body hover:text-[#FC4ECF] active:text-white transition-color duration-200'><a href={user.social.discord}>
+              <li className='text-white font-body hover:text-[#FC4ECF] active:text-white transition-color duration-200'><a href={user?.social.discord}>
                 <i className="fa-brands fa-discord"></i>
               </a></li>
             </ul>

@@ -76,7 +76,6 @@ export const AvatarInfo = ({ user, setUser, setErrorType, setErrorMessage }) => 
         !edit ? (
           <div className="flex flex-col bg-white px-10 pt-5 gap-y-5">
             <ul className='flex flex-col gap-y-2'>
-              <li className='border-b font-body text-sm px-2'>{user?.birthdate.substring(0, 10) || birthdate}</li>
               <li className='border-b font-body text-sm px-2'>{user?.location || location}</li>
               <li className='border-b font-body text-sm px-2'>{user?.email}</li>
               <li className='border-b font-body text-sm px-2'>
@@ -101,23 +100,20 @@ export const AvatarInfo = ({ user, setUser, setErrorType, setErrorMessage }) => 
             <div className="flex flex-col bg-white px-10 pt-5 gap-y-5">
               <ul className='flex flex-col gap-y-2'>
                 <li>
-                  <input className='border-b focus:ring-0 focus:outline-none w-full font-body text-sm px-2' type="text" placeholder={String(user.firstname)} value={firstname} onChange={({ target }) => setFirstName(target.value)} />
+                  <input className='border-b focus:ring-0 focus:outline-none w-full font-body text-sm px-2' type="text" placeholder={String(user?.firstname)} value={firstname} onChange={({ target }) => setFirstName(target.value)} />
                 </li>
                 <li>
-                  <input className='border-b focus:ring-0 focus:outline-none w-full font-body text-sm px-2' type="text" placeholder={String(user.lastname)} value={lastname} onChange={({ target }) => setLastname(target.value)} />
+                  <input className='border-b focus:ring-0 focus:outline-none w-full font-body text-sm px-2' type="text" placeholder={String(user?.lastname)} value={lastname} onChange={({ target }) => setLastname(target.value)} />
                 </li>
                 <li>
-                  <input className='border-b focus:ring-0 focus:outline-none w-full font-body text-sm px-2' type="date" placeholder={String(user.birthdate)} value={birthdate} onChange={({ target }) => setBirthdate(target.value)} />
+                  <input className='border-b focus:ring-0 focus:outline-none w-full font-body text-sm px-2' type="text" placeholder={String(user?.location)} value={location} onChange={({ target }) => setLocation(target.value)} />
                 </li>
                 <li>
-                  <input className='border-b focus:ring-0 focus:outline-none w-full font-body text-sm px-2' type="text" placeholder={String(user.location)} value={location} onChange={({ target }) => setLocation(target.value)} />
-                </li>
-                <li>
-                  <input className='border-b focus:ring-0 focus:outline-none w-full font-body text-sm px-2' type="text" placeholder={String(user.email)} value={email} onChange={({ target }) => setEmail(target.value)} />
+                  <input className='border-b focus:ring-0 focus:outline-none w-full font-body text-sm px-2' type="text" placeholder={String(user?.email)} value={email} onChange={({ target }) => setEmail(target.value)} />
                 </li>
                 <li className='flex gap-x-2 w-full overflow-x-hidden'>
-                  <input className='border-b w-1/2 focus:ring-0 focus:outline-none font-body text-sm px-2' type="text" placeholder={String(user.website.url)} value={website.url} onChange={({ target }) => setWebsite({ ...website, url: target.value })} />
-                  <input className='border-b w-1/2 focus:ring-0 focus:outline-none font-body text-sm px-2' type="text" placeholder={String(user.website.title)} value={website.title} onChange={({ target }) => setWebsite({ ...website, title: target.value })} />
+                  <input className='border-b w-1/2 focus:ring-0 focus:outline-none font-body text-sm px-2' type="text" placeholder={String(user?.website.url)} value={website.url} onChange={({ target }) => setWebsite({ ...website, url: target.value })} />
+                  <input className='border-b w-1/2 focus:ring-0 focus:outline-none font-body text-sm px-2' type="text" placeholder={String(user?.website.title)} value={website.title} onChange={({ target }) => setWebsite({ ...website, title: target.value })} />
                 </li>
               </ul>
               <div className="flex flex-col">

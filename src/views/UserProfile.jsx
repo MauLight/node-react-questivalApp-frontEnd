@@ -27,6 +27,7 @@ export const UserProfile = ({ user, setUser, setErrorType, setErrorMessage }) =>
   useEffect(() => {
 
     const currentUser = localStorage.getItem('QuestivalUser')
+    setUser(currentUser)
     if (!currentUser) {
       navigate('/login')
     }
@@ -82,7 +83,7 @@ export const UserProfile = ({ user, setUser, setErrorType, setErrorMessage }) =>
                 initial="hidden"
                 whileInView={'show'}
                 viewport={{ once: true, amount: 0.9 }}
-                className='mr-10 mt-10 h-[73vh] overflow-hidden rounded-md'>
+                className='mr-10 mt-10 flex gap-y-20 rounded-md'>
                 <Activity
                   sortedReadList={sortedReadList}
                   setSortedReadList={setSortedReadList}
