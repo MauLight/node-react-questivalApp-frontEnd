@@ -45,9 +45,9 @@ export const AskRecovery = ({ setErrorMessage, setErrorType }) => {
   }
 
   return (
-    <div className='h-screen max-sm:px-2 sm:w-full flex justify-center items-center'>
-      <div>
-        <div className='flex flex-col items-start gap-y-0 pb-5 px-5 font-body w-[20vw]'>
+    <div className='h-screen max-sm:px-2 w-screen flex justify-center items-center'>
+      <div className='w-[28%]'>
+        <div className='flex flex-col items-start gap-y-0 pb-5 px-5 font-body w-full'>
           <h1 className='text-2xl text-white font-bold font-body p-0 m-0'>{'Forgot password?'}</h1>
           <p className='text-sm text-white p-0 m-0'>Please enter your email.</p>
         </div>
@@ -56,10 +56,10 @@ export const AskRecovery = ({ setErrorMessage, setErrorType }) => {
             <input type='email' className='glass h-12 p-2 text-white bg-transparent w-full  rounded-md' value={email} onChange={({ target }) => setEmail(target.value)} placeholder='Enter User Email' />
           </div>
           <div className="flex gap-y-2 w-full">
-            <button type='submit' className='h-12 p-2 text-[#1E1E1E] bg-[#FC4ECF] w-full rounded-md hover:bg-white transition-color duration-200' onClick={handleSubmit}>Confirm</button>
+            <button type='submit' className='h-12 p-2 text-white bg-[#FC4ECF] w-full rounded-md hover:bg-white hover:text-[#1E1E1E] transition-color duration-200' onClick={handleSubmit}>Confirm</button>
           </div>
           <div className="flex gap-y-2">
-            <small className='text-white'>Cancel? <Link className='hover:text-[#464648] transition-color duration-200' to={'/login'}>Log in.</Link></small>
+            <small className='text-white'>Cancel? <Link className='hover:text-[#FC4ECF] transition-color duration-200' to={'/login'}>Log in.</Link></small>
           </div>
         </form>
       </div>

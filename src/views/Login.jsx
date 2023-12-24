@@ -150,9 +150,9 @@ export const Login = ({ setUser, setErrorMessage, setErrorType }) => {
   // })
 
   return (
-    <div className='h-screen max-sm:px-2 sm:w-full flex justify-center items-center'>
-      <div>
-        <div className='flex flex-col items-start gap-y-0 pb-5 px-5 font-body min-w-[15vw]'>
+    <div className='h-screen max-sm:px-2 w-screen flex justify-center items-center'>
+      <div className='w-[28%]'>
+        <div className='flex flex-col items-start gap-y-0 pb-5 px-5 font-body'>
           <h1 className='text-2xl text-white font-bold font-body p-0 m-0'>{'Glad you\'re back!'}</h1>
           <p className='text-sm text-white p-0 m-0'>Enter email to continue.</p>
         </div>

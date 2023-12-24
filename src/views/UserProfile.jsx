@@ -27,7 +27,7 @@ export const UserProfile = ({ user, setUser, setErrorType, setErrorMessage }) =>
   useEffect(() => {
 
     const currentUser = localStorage.getItem('QuestivalUser')
-    setUser(currentUser)
+    setUser(JSON.parse(currentUser))
     if (!currentUser) {
       navigate('/login')
     }

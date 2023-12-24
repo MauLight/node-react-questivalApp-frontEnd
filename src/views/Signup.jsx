@@ -167,8 +167,8 @@ export const Signup = ({ setUser, setErrorMessage, setErrorType }) => {
   // }
 
   return (
-    <div className='h-screen max-sm:px-2 sm:w-full w-[20vw] z-40'>
-      <div className='flex flex-col justify-center items-center h-full w-full'>
+    <div className='h-screen flex justify-center items-center max-sm:px-2 sm:w-screen z-40'>
+      <div className='flex flex-col justify-center items-center h-full w-[28%]'>
         <div className='flex flex-col w-full items-start gap-y-0 pb-5 px-5 font-body'>
           <h1 className='text-2xl text-start w-full text-white font-bold font-body p-0 m-0'>{'Join Questival!'}</h1>
           <p className='text-sm text-white p-0 m-0'>Just some details to let you in.</p>
