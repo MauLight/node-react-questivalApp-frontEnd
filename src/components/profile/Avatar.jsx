@@ -43,7 +43,7 @@ export const Avatar = ({ user, setUser, setErrorType, setErrorMessage }) => {
 
 
   return (
-    <div className="flex bg-white pt-[103px]">
+    <div className="flex bg-[#181818] pt-[103px]">
       <div className="flex flex-col px-10 justify-end items-center relative">
         <div className="flex w-full h-full overflow-hidden">
           <div className='absolute h-full w-[79%] z-40'>
@@ -71,20 +71,20 @@ export const Avatar = ({ user, setUser, setErrorType, setErrorMessage }) => {
           viewport={{ once: false, amount: 0.7 }}
           className="flex flex-col absolute gap-y-1">
           <div className="flex flex-col justify-center items-center">
-            <h1 className='text-md uppercase text-white'>{user?.firstname + ' ' + user?.lastname}</h1>
+            <h1 className='text-md uppercase text-[#FFFBE9]'>{user?.firstname + ' ' + user?.lastname}</h1>
           </div>
           <div className="flex gap-x-2 justify-center items-center pb-5">
             <div className="flex flex-col justify-center items-center">
-              <h1 className='font-body text-sm  text-white'>12</h1>
-              <h1 className='font-body text-white text-[10px]'>screenplays</h1>
+              <h1 className='font-body text-sm  text-[#FFFBE9]'>12</h1>
+              <h1 className='font-body text-[#FFFBE9] text-[10px]'>screenplays</h1>
             </div>
             <div className="flex flex-col justify-center items-center">
-              <h1 className='font-body  text-sm text-white'>136</h1>
-              <h1 className='font-body text-white text-[10px]'>following</h1>
+              <h1 className='font-body  text-sm text-[#FFFBE9]'>136</h1>
+              <h1 className='font-body text-[#FFFBE9] text-[10px]'>following</h1>
             </div>
             <div className="flex flex-col justify-center items-center">
-              <h1 className='font-body text-sm  text-white'>27</h1>
-              <h1 className='font-body text-white text-[10px]'>followers</h1>
+              <h1 className='font-body text-sm  text-[#FFFBE9]'>27</h1>
+              <h1 className='font-body text-[#FFFBE9] text-[10px]'>followers</h1>
             </div>
           </div>
         </motion.div>

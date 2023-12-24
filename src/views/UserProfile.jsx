@@ -36,16 +36,16 @@ export const UserProfile = ({ user, setUser, setErrorType, setErrorMessage }) =>
   return (
     <div className='wrapper w-full h-[100vh] overflow-y-auto overflow-x-hidden'>
       <ParallaxHeader user={user} />
-      <div className="flex px-10 pt-12 bg-white justify-between">
-        <h1 className='text-[40px] font-body font-bold uppercase pb-10'>_Portfolio</h1>
-        <Menu currentPage={currentPage} setCurrentPage={setCurrentPage} />
+      <div className="flex px-10 pt-32 bg-white justify-between bg-[#181818]">
+        <h1 className='text-[40px] font-body font-bold uppercase text-[#FFFBE9]'>_Portfolio</h1>
+        <Menu currentPage={currentPage} setCurrentPage={setCurrentPage} user={user} />
       </div>
-      <div className="flex bg-white pb-20 w-screen">
-        <div className='w-1/5'>
+      <div className="flex bg-[#181818] pb-20 w-screen">
+        <div className='w-[20%] overflow-y-hidden'>
           <Avatar user={user} setUser={setUser} setErrorMessage={setErrorMessage} setErrorType={setErrorType} />
           <AvatarInfo user={user} setUser={setUser} setErrorMessage={setErrorMessage} setErrorType={setErrorType} />
         </div>
-        <div className="w-4/5 h-full overflow-y-hidden">
+        <div className="w-[80%] h-full overflow-y-hidden">
           {
             currentPage === 1 && (
               <motion.div
@@ -54,8 +54,7 @@ export const UserProfile = ({ user, setUser, setErrorType, setErrorMessage }) =>
                 whileInView={'show'}
                 viewport={{ once: true, amount: 0.7 }}
               >
-                <div className="flex gap-x-5 justify-between items-center mt-11 mr-10">
-                  <h1 className='text-xl font-body font-bold'>Your Screenplays</h1>
+                <div className="my-10">
                   <FilterButton isOpen={isOpen} setIsOpen={setIsOpen} sortedList={sortedList} setSortedList={setSortedList} />
                 </div>
                 <div className="flex gap-x-10 mt-5 pr-10 overflow-x-scroll">

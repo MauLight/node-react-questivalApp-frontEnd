@@ -5,7 +5,10 @@ import { user as currentUser } from '../../utils/user'
 const Badges = ({ isOpen, setIsOpen, badges }) => {
   return (
     <>
-      <p onClick={() => setIsOpen(!isOpen)} className='text-end underline cursor-pointer hover:text-[#FC4ECF] active:text-black transition-color duration-200'>{!isOpen ? 'See all' : 'Cancel'}</p>
+      <div className="flex justify-between">
+        <h1 className='font-body text-lg text-[#FFFBE9]'>Achievements</h1>
+        <p onClick={() => setIsOpen(!isOpen)} className='text-end underline text-[#FFFBE9] cursor-pointer hover:text-[#FC4ECF] active:text-black transition-color duration-200'>{!isOpen ? 'See all' : 'Cancel'}</p>
+      </div>
       <div className="flex flex-wrap justify-between mt-2">
         {
           !isOpen ? (
@@ -72,16 +75,30 @@ export const AvatarInfo = ({ user, setUser, setErrorType, setErrorMessage }) => 
     <>
       {
         !edit ? (
-          <div className="flex flex-col bg-white px-10 pt-5 gap-y-5">
-            <ul className='flex flex-col gap-y-2'>
-              <li className='border-b font-body text-sm px-2'>{user?.location || location}</li>
-              <li className='border-b font-body text-sm px-2'>{user?.email}</li>
-              <li className='border-b font-body text-sm px-2'>
+          <div className="flex flex-col bg-[#181818] px-10 pt-5 gap-y-5">
+            <h1 className='font-body text-[#FFFBE9] text-sm my-2 italic'>{'I am a sexy piece of meat.'}</h1>
+            <ul className='flex flex-col gap-y-3 mb-2'>
+              <li className='border-b border-[#FFFBE9] font-body text-[#FFFBE9] text-sm px-2'>{user?.location || location}</li>
+              <li className='border-b border-[#FFFBE9] font-body text-[#FFFBE9] text-sm px-2'>{user?.email}</li>
+              <li className='border-b border-[#FFFBE9] font-body text-[#FFFBE9] text-sm px-2'>
                 <a href={user?.website.url || ''}>{user?.website.title || ''}</a>
               </li>
             </ul>
+            <div>
+              <div className="flex justify-between items-center">
+                <p className='font-body text-[#FFFBE9] text-sm'>{'Stories read'}</p>
+                <p className='font-body text-[#FFFBE9] text-sm'>{user?.read.length}</p>
+              </div>
+              <div className="flex justify-between items-center">
+                <p className='font-body text-[#FFFBE9] text-sm'>{'Favorite stories'}</p>
+                <p className='font-body text-[#FFFBE9] text-sm'>{user?.favorites.length}</p>
+              </div>
+              <div className="flex justify-between items-center">
+                <p className='font-body text-[#FFFBE9] text-sm'>{'Saved for later'}</p>
+                <p className='font-body text-[#FFFBE9] text-sm'>{user?.saved.length}</p>
+              </div>
+            </div>
             <div className="flex flex-col">
-              <h1 className='font-body text-lg'>Milestones</h1>
               <div className='w-full'>
                 <Badges isOpen={isOpen} setIsOpen={setIsOpen} badges={badges} />
                 <div className="flex justify-between mt-5">
