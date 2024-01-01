@@ -43,7 +43,7 @@ export const Avatar = ({ user, setUser, setErrorType, setErrorMessage }) => {
 
 
   return (
-    <div className="flex bg-[#181818] pt-[103px]">
+    <div className="flex bg-[#181818] pt-[118px]">
       <div className="flex flex-col px-10 justify-end items-center relative">
         <div className="flex w-full h-full overflow-hidden">
           <div className='absolute h-full w-[79%] z-40'>

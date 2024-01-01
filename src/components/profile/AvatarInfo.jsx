@@ -1,4 +1,6 @@
 import { useState } from 'react'
+import { useMutation, useQueryClient } from '@tanstack/react-query'
+import axios from 'axios'
 import { updateUser } from '../../services/user'
 import { user as currentUser } from '../../utils/user'
 
@@ -28,7 +30,17 @@ const Badges = ({ isOpen, setIsOpen, badges }) => {
   )
 }
 
-export const AvatarInfo = ({ user, setUser, setErrorType, setErrorMessage }) => {
+export const AvatarInfo = ({
+  myUser,
+  myId,
+  user,
+  setUser,
+  setErrorType,
+  setErrorMessage,
+  myProfile,
+  following,
+  setFollowing
+}) => {
 
   //! Mandatory information
   const [firstname, setFirstName] = useState('')
@@ -38,10 +50,35 @@ export const AvatarInfo = ({ user, setUser, setErrorType, setErrorMessage }) => 
   //* Optional information
   const [location, setLocation] = useState('')
   const [website, setWebsite] = useState('')
+  // eslint-disable-next-line no-unused-vars
   const [badges, setBadges] = useState(currentUser.badges.slice(0, 3))
 
   const [edit, setEdit] = useState(false)
   const [isOpen, setIsOpen] = useState(false)
+
+  const queryClient = useQueryClient()
+  const followMutation = useMutation({
+    mutationFn: (userToFollowId) => axios.put('http://localhost:3001/api/users', { userToFollowId, myId })
+      .then(res => console.log(res)),
+    onSuccess: () => queryClient.invalidateQueries('allUsers')
+  })
+
+  const unfollowMutation = useMutation({
+    mutationFn: (userToUnfollowId) => axios.post('http://localhost:3001/api/users/update', { userToUnfollowId, myId })
+      .then(res => console.log(res)),
+
+    onSuccess: () => queryClient.invalidateQueries('allUsers')
+  })
+
+  const handleFollow = (userToFollowId) => {
+    followMutation.mutate(userToFollowId)
+    setFollowing(myUser.following.find(elem => elem.id === user.id))
+  }
+
+  const handleUnfollow = (userToUnfollowId) => {
+    unfollowMutation.mutate(userToUnfollowId)
+    setFollowing(myUser.following.find(elem => elem.id === user.id))
+  }
 
   const handleSubmit = async () => {
 
@@ -81,7 +118,7 @@ export const AvatarInfo = ({ user, setUser, setErrorType, setErrorMessage }) => 
               <li className='border-b border-[#FFFBE9] font-body text-[#FFFBE9] text-sm px-2'>{user?.location || location}</li>
               <li className='border-b border-[#FFFBE9] font-body text-[#FFFBE9] text-sm px-2'>{user?.email}</li>
               <li className='border-b border-[#FFFBE9] font-body text-[#FFFBE9] text-sm px-2'>
-                <a href={user?.website.url || ''}>{user?.website.title || ''}</a>
+                <a href=''>url</a>
               </li>
             </ul>
             <div>
@@ -102,9 +139,31 @@ export const AvatarInfo = ({ user, setUser, setErrorType, setErrorMessage }) => 
               <div className='w-full'>
                 <Badges isOpen={isOpen} setIsOpen={setIsOpen} badges={badges} />
                 <div className="flex justify-between mt-5">
-                  <button onClick={() => setEdit(true)} className='h-12 p-2 text-white bg-[#FC4ECF] border border-[#FC4ECF] w-full rounded-md hover:bg-white hover:text-[#FC4ECF] active:bg-[#FC4ECF] active:text-white transition-color duration-200' >
-                    Edit profile
-                  </button>
+                  {
+                    myProfile ? (
+                      <button onClick={() => setEdit(true)} className='h-12 p-2 text-white bg-[#FC4ECF] border border-[#FC4ECF] w-full rounded-md hover:bg-white hover:text-[#FC4ECF] active:bg-[#FC4ECF] active:text-white transition-color duration-200' >
+                        Edit profile
+                      </button>
+                    )
+                      :
+                      (
+                        <>
+                          {
+                            following ? (
+                              <button onClick={() => handleUnfollow(user?.id)} className='h-12 p-2 text-white bg-[#FC4ECF] border border-[#FC4ECF] w-full rounded-md hover:bg-white hover:text-[#FC4ECF] active:bg-[#FC4ECF] active:text-white transition-color duration-200' >
+                                Unfollow
+                              </button>
+                            )
+                              :
+                              (
+                                <button onClick={() => handleFollow(user?.id)} className='h-12 p-2 text-white bg-[#FC4ECF] border border-[#FC4ECF] w-full rounded-md hover:bg-white hover:text-[#FC4ECF] active:bg-[#FC4ECF] active:text-white transition-color duration-200' >
+                                  Follow
+                                </button>
+                              )
+                          }
+                        </>
+                      )
+                  }
                 </div>
               </div>
             </div>

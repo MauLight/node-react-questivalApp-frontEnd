@@ -1,37 +1,43 @@
 import React, { useState } from 'react'
-import { FilterButton } from './FilterButton'
 import { ScreenplayCard } from './ScreenplayCard'
 
-const ScreenplayMenu = ({ currentPage, setCurrentPage }) => {
+import { user as currentUser } from '../../utils/user'
+
+const ScreenplayMenu = ({ currentPage, setCurrentPage, user }) => {
+
+  console.log('These are the arrays', user)
+
   return (
-    <div className="flex justify-center items-end w-full gap-x-20">
-      <h1 onClick={() => setCurrentPage(1)} className={currentPage === 1 ? 'flex gap-x-2 items-center text-xl text-[#FC4ECF] font-body cursor-pointer hover:text-black transition-color duration-200 bold' : 'flex gap-x-2 items-center text-lg font-body cursor-pointer hover:text-[#FC4ECF] transition-color duration-200'}>
-        <i className="fa-regular fa-square-check"></i>
-      Read Screenplays
-      </h1>
-      <h1 onClick={() => setCurrentPage(2)} className={currentPage === 2 ? 'flex gap-x-2 items-center text-xl text-[#FC4ECF] font-body cursor-pointer hover:text-black transition-color duration-200 bold' : 'flex gap-x-2 items-center text-lg font-body cursor-pointer hover:text-[#FC4ECF] transition-color duration-200'}>
-        <i className="fa-regular fa-star"></i>
-      Favorite Screenplays
-      </h1>
-      <h1 onClick={() => setCurrentPage(3)} className={currentPage === 3 ? 'flex gap-x-2 items-center text-xl text-[#FC4ECF] font-body cursor-pointer hover:text-black transition-color duration-200 bold' : 'flex gap-x-2 items-center text-lg font-body cursor-pointer hover:text-[#FC4ECF] transition-color duration-200'}>
-        <i className="fa-regular fa-bookmark"></i>
-      Saved Screenplays
-      </h1>
+    <div className="flex justify-start items-end w-full gap-x-10">
+      <div onClick={() => setCurrentPage(1)} className={currentPage === 1 ? 'w-[5vw] flex gap-x-2 cursor-pointer justify-center text-sm text-center font-body text-[#FC4ECF] border border-[#FC4ECF] hover:text-[#FFFBE9] hover:border-[#FFFBE9] px-4 py-2 rounded-full transition-all duration-200 bold relative' : 'w-[5vw] flex gap-x-2 cursor-pointer justify-center text-sm text-center font-body border border-[#FC4ECF] hover:text-[#FC4ECF] text-[#FFFBE9] bg-[#FC4ECF] hover:border-[#FC4ECF] hover:bg-[#FFFBE9] px-4 py-2 rounded-full transition-all duration-200 relative'}>
+        {'All'}
+        <p className='text-[12px] text-start scroll-m-20'>{user?.favorites.length + user?.saved.length + user?.read.length}</p>
+      </div>
+      <div onClick={() => setCurrentPage(2)} className={currentPage === 2 ? 'w-[10vw] flex gap-x-2 cursor-pointer justify-center text-sm text-center font-body text-[#FC4ECF] border border-[#FC4ECF] hover:text-[#FFFBE9] hover:border-[#FFFBE9] px-4 py-2 rounded-full transition-all duration-200 bold relative' : 'w-[10vw] flex gap-x-2 cursor-pointer justify-center text-sm text-center font-body border border-[#FFFBE9] hover:text-[#FC4ECF] text-[#FFFBE9] hover:border-[#FC4ECF] px-4 py-2 rounded-full transition-all duration-200 relative'}>
+        {'Read Screenplays'}
+        <p className='text-[12px]'>{user?.read.length}</p>
+      </div>
+      <div onClick={() => setCurrentPage(3)} className={currentPage === 3 ? 'w-[10vw] flex gap-x-2 cursor-pointer justify-center text-sm text-center font-body text-[#FC4ECF] border border-[#FC4ECF] hover:text-[#FFFBE9] hover:border-[#FFFBE9] px-4 py-2 rounded-full transition-all duration-200 bold relative' : 'w-[10vw] flex gap-x-2 cursor-pointer justify-center text-sm text-center font-body border border-[#FFFBE9] hover:text-[#FC4ECF] text-[#FFFBE9] hover:border-[#FC4ECF] px-4 py-2 rounded-full transition-all duration-200 relative'}>
+        {'Favorite Screenplays'}
+        <p className='text-[12px] text-start scroll-m-20'>{user?.favorites.length}</p>
+      </div>
+      <div onClick={() => setCurrentPage(4)} className={currentPage === 4 ? 'w-[10vw] flex gap-x-2 cursor-pointer justify-center text-sm text-center font-body text-[#FC4ECF] border border-[#FC4ECF] hover:text-[#FFFBE9] hover:border-[#FFFBE9] px-4 py-2 rounded-full transition-all duration-200 bold relative' : 'w-[10vw] flex gap-x-2 cursor-pointer justify-center text-sm text-center font-body border border-[#FFFBE9] hover:text-[#FC4ECF] text-[#FFFBE9] hover:border-[#FC4ECF] px-4 py-2 rounded-full transition-all duration-200 relative'}>
+        {'Saved Screenplays'}
+        <p className='text-[12px] text-start scroll-m-20'>{user?.saved.length}</p>
+      </div>
     </div>
   )
 }
 
 export const Activity = ({
-  sortedReadList,
-  setSortedReadList,
-  sortedFavList,
-  setSortedFavList,
-  sortedSavedList,
-  setSortedSavedList
+  user
 }) => {
 
-  const [isOpen, setIsOpen] = useState(false)
   const [currentPage, setCurrentPage] = useState(1)
+  // const [allScreenplays, setAllScreenplays] = useState([...user.read, ...user.favorites, ...user.saved])
+  const [allScreenplays, setAllScreenplays] = useState([...currentUser.read, ...currentUser.favorites, ...currentUser.saved])
+
+  console.log(allScreenplays)
 
   return (
     <>
@@ -40,12 +46,11 @@ export const Activity = ({
         {
           currentPage === 1 && (
             <div>
-              <div className="flex gap-x-5 justify-end items-center mr-10">
-                <ScreenplayMenu currentPage={currentPage} setCurrentPage={setCurrentPage} />
-                <FilterButton isOpen={isOpen} setIsOpen={setIsOpen} sortedList={sortedReadList} setSortedList={setSortedReadList} />
+              <div className="flex gap-x-5 justify-end items-center mb-10">
+                <ScreenplayMenu user={user} currentPage={currentPage} setCurrentPage={setCurrentPage} />
               </div>
-              <div className="flex gap-x-10 mt-6 pr-10 overflow-x-scroll">
-                {sortedReadList.map(project => <ScreenplayCard key={project.id} project={project} />)}
+              <div className="flex flex-col gap-y-10">
+                {allScreenplays.map(project => <ScreenplayCard key={project.id} project={project} />)}
               </div>
             </div>
           )
@@ -54,12 +59,11 @@ export const Activity = ({
         {
           currentPage === 2 && (
             <div>
-              <div className="flex gap-x-5 justify-end items-center mr-10">
-                <ScreenplayMenu currentPage={currentPage} setCurrentPage={setCurrentPage} />
-                <FilterButton isOpen={isOpen} setIsOpen={setIsOpen} sortedList={sortedFavList} setSortedList={setSortedFavList} />
+              <div className="flex gap-x-5 justify-end items-center mb-10">
+                <ScreenplayMenu user={user} currentPage={currentPage} setCurrentPage={setCurrentPage} />
               </div>
-              <div className="flex gap-x-10 mt-6 pr-10 overflow-x-scroll">
-                {sortedFavList.map(project => <ScreenplayCard key={project.id} project={project} />)}
+              <div className="flex flex-col gap-y-10">
+                {currentUser.read.map(project => <ScreenplayCard key={project.id} project={project} />)}
               </div>
             </div>
           )
@@ -68,12 +72,24 @@ export const Activity = ({
         {
           currentPage === 3 && (
             <div>
-              <div className="flex gap-x-5 justify-end items-center mr-10">
-                <ScreenplayMenu currentPage={currentPage} setCurrentPage={setCurrentPage} />
-                <FilterButton isOpen={isOpen} setIsOpen={setIsOpen} sortedList={sortedSavedList} setSortedList={setSortedSavedList} />
+              <div className="flex gap-x-5 justify-end items-center mb-10">
+                <ScreenplayMenu user={user} currentPage={currentPage} setCurrentPage={setCurrentPage} />
               </div>
-              <div className="flex gap-x-10 mt-6 pr-10 overflow-x-scroll">
-                {sortedSavedList.map(project => <ScreenplayCard key={project.id} project={project} />)}
+              <div className="flex flex-col gap-y-10">
+                {currentUser.favorites.map(project => <ScreenplayCard key={project.id} project={project} />)}
+              </div>
+            </div>
+          )
+        }
+
+        {
+          currentPage === 4 && (
+            <div>
+              <div className="flex gap-x-5 justify-end items-center mb-10">
+                <ScreenplayMenu user={user} currentPage={currentPage} setCurrentPage={setCurrentPage} />
+              </div>
+              <div className="flex flex-col gap-y-10">
+                {currentUser.saved.map(project => <ScreenplayCard key={project.id} project={project} />)}
               </div>
             </div>
           )

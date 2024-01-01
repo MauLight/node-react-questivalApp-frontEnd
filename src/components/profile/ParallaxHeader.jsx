@@ -42,13 +42,13 @@ export const ParallaxHeader = ({ user }) => {
             className="flex w-full h-full justify-start items-end mb-[70px]">
             <ul className='mx-10 text-xl flex flex-col justify-center items-center gap-y-1'>
               <li className='font-body text-lg transition-color duration-200 absolute -rotate-90 left-[0.9%] bottom-[24%] text-[#FFFBE9] '>Visit me</li>
-              <li className='text-[#FFFBE9] font-body hover:text-[#FC4ECF] active:text-[#FFFBE9] transition-color duration-200'><a href={user?.social.instagram}>
+              <li className='text-[#FFFBE9] font-body hover:text-[#FC4ECF] active:text-[#FFFBE9] transition-color duration-200'><a href=''>
                 <i className="fa-brands fa-instagram"></i>
               </a></li>
-              <li className='text-[#FFFBE9] font-body hover:text-[#FC4ECF] active:text-[#FFFBE9] transition-color duration-200'><a href={user?.social.linkedin}>
+              <li className='text-[#FFFBE9] font-body hover:text-[#FC4ECF] active:text-[#FFFBE9] transition-color duration-200'><a href=''>
                 <i className="fa-brands fa-linkedin"></i>
               </a></li>
-              <li className='text-[#FFFBE9] font-body hover:text-[#FC4ECF] active:text-[#FFFBE9] transition-color duration-200'><a href={user?.social.discord}>
+              <li className='text-[#FFFBE9] font-body hover:text-[#FC4ECF] active:text-[#FFFBE9] transition-color duration-200'><a href=''>
                 <i className="fa-brands fa-discord"></i>
               </a></li>
             </ul>
