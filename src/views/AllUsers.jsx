@@ -18,7 +18,6 @@ export const AllUsers = ({ users, myId }) => {
   const unfollowMutation = useMutation({
     mutationFn: (userToUnfollowId) => axios.post('http://localhost:3001/api/users/update', { userToUnfollowId, myId })
       .then(res => console.log(res)),
-
     onSuccess: () => queryClient.invalidateQueries('allUsers')
   })
 

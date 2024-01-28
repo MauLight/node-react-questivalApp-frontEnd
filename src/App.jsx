@@ -37,7 +37,7 @@ function App() {
 
   const result = useQuery({
     queryKey: ['allUsers'],
-    queryFn: () => axios.get('http://localhost:3001/api/users')
+    queryFn: () => axios.get('https://questivalapp-node-backend-together.onrender.com/api/users')
       .then(res => {
         setUser(res.data?.filter(elem => elem.id === JSON.parse(localStorage.getItem('QuestivalUser')).id)[0])
         console.log('the retrieved user: ', res.data?.filter(elem => elem.id === JSON.parse(localStorage.getItem('QuestivalUser')).id)[0])
@@ -88,7 +88,7 @@ function App() {
                     :
                     (
                       <Routes>
-                        <Route path='/' element={<Dashboard />} />
+                        <Route path='/' element={<AllUsers users={users} myId={user.id} />} />
                         <Route path='/allUsers' element={<AllUsers users={users} myId={user.id} />} />
                         <Route path='/user/:id' element={<OtherUserProfile userId={userId} myUser={user} setUser={setUser} />} />
                         <Route path='/dashboard' element={<Dashboard setErrorMessage={setErrorMessage} setErrorType={setErrorType} />} />

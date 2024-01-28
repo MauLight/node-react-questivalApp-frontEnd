@@ -18,7 +18,7 @@ export const Login = ({ setUser, setErrorMessage, setErrorType }) => {
   const googleLogin = useGoogleLogin({
     onSuccess: (res) => {
       axios.get(`https://www.googleapis.com/oauth2/v1/userinfo?access_token=${res.access_token}`, {
-        hesders: {
+        headers: {
           Authorization: `Bearer ${res.access_token}`,
           Accept: 'application/json'
         }
